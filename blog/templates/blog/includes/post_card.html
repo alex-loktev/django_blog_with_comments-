@@ -1,0 +1,12 @@
+                                                                                                                                                                                                                              <div class="card mt-5">
+<div class="card-header">
+  {{post.created}}
+</div>
+<div class="card-body">
+  <h5 class="card-title">{{post.title}}</h5>
+  <p class="card-text">{{post.text}}</p>
+  <p>Comments: {{post.comments.count}}</p>
+  <a href="{{post.get_absolute_url}}" class="btn btn-primary">Read</a>
+
+</div>
+</div>

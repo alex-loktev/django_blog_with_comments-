@@ -1,0 +1,10 @@
+{%extends 'base.html'%}
+
+{%block title%}{{object.title}}{%endblock%}
+
+{%block body%}
+<h1 class='mt-5'>Posts with <span class="badge badge-success">{{object.title}}</span> tag:</h1>
+{%for post in object.posts.all%}
+{%include 'blog/includes/post_card.html'%}
+{%endfor%}
+{%endblock%}

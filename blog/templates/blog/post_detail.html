@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%load crispy_forms_tags%}
+
+{%block title%}
+{{post.title}}
+{%endblock%}
+
+{%block body%}
+<h3 class="mt-5">{{post.title}}</h3>
+<p>{{post.text}}</p>
+<hr><p>{{post.created}}</p>
+
+<div class="container mt - 5">
+  <div class="card w-75 mt-5">
+    <div class="card-body">
+  <form class="" action="." method="post">
+    {%csrf_token%}
+    {{form|crispy}}
+    <button type="submit" name="button" class="btn btn-primary">Publish</button>
+  </form>
+</div>
+</div>
+</div>
+
+<div class="container mt-5">
+  <h3>Comments:</h3>
+  {%for comment in post.comments.all%}
+  <div class="card w-75 mt-5">
+  <div class="card-body">
+    <h5 class="card-title">{{comment.logname}}</h5>
+    <p class="card-text">{{comment.text}}</p>
+  </div>
+  <div class="card-footer text-muted">
+  {{comment.created}}
+</div>
+</div>
+  {%endfor%}
+</div>
+{%endblock%}
